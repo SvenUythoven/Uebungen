@@ -4,7 +4,7 @@ class Figur:
     def __init__(self, name):
         self.name = name
 
-    def Umfang(self):
+    def umfang(self):
         return 0
 
     def __str__(self):
@@ -12,6 +12,8 @@ class Figur:
     
     def dist(self):
         return 0
+    
+#------------------------------------------------------------------------------
     
 class Punkt(Figur):
     def __init__(self, x ,y):
@@ -25,6 +27,7 @@ class Punkt(Figur):
     def dist(self,other):
         return ((self.x-other.x)**2+(self.y-other.y)**2)**0.5
 
+#------------------------------------------------------------------------------
     
 class Kreis(Figur):   ## Kreis(verbindung)
     def __init__(self, mittelpunkt, radius):
@@ -35,6 +38,8 @@ class Kreis(Figur):   ## Kreis(verbindung)
     def umfang(self):
         return 2 * math.pi * self.radius
     
+#------------------------------------------------------------------------------
+
 class Dreieck(Figur):
     def __init__(self, A, B, C):
         super().__init__("Dreieck")
@@ -44,7 +49,8 @@ class Dreieck(Figur):
 
     def umfang(self):
         return (self.A.dist(self.B))+(self.B.dist(self.C))+(self.C.dist(self.A))
-    
+
+#------------------------------------------------------------------------------  
 
 class Rechteck(Figur):
     def __init__(self, A, B, C, D):
@@ -60,14 +66,14 @@ class Rechteck(Figur):
 
 p1 = Punkt(0,0)
 p2 = Punkt(4,0)
-p4 = Punkt(4,4)
-p3 = Punkt(0,4)
+p3 = Punkt(4,4)
+p4 = Punkt(0,4)
 
 d1 = Dreieck(p1,p2,p3)
 r1 = Rechteck(p1,p2,p3,p4)
 
 print(d1.umfang())
-print(r1.Umfang())
+print(r1.umfang())
 
 
 
