@@ -36,21 +36,26 @@ class Kreis(Figur):   ## Kreis(verbindung)
         return 2 * math.pi * self.radius
     
 class Dreieck(Figur):
-    def __init__(self, punkta, punktb, punktc):
+    def __init__(self, A, B, C):
         super().__init__("Dreieck")
-        self.punkta = punkta
-        self.punktb = punktb
-        self.punktc = punktc
+        self.A = A
+        self.B = B
+        self.C = C
 
     def umfang(self):
-        return (self.punkta.dist(self.punktb))+(self.punktb.dist(self.punktc))+(self.punktc.dist(self.punkta))
+        return (self.A.dist(self.B))+(self.B.dist(self.C))+(self.C.dist(self.A))
+    
+
 class Rechteck(Figur):
-    def __init__(self, punkta, punktb, punktc, punktd):
+    def __init__(self, A, B, C, D):
         super().__init__("Rechteck")
-        self.punkta = punkta
-        self.punktb = punktb
-        self.punktc = punktc
-        self.punktd = punktd
+        self.A = A
+        self.B = B
+        self.C = C
+        self.D = D
+
+    def umfang(self):
+        return self.A.dist(self.B)+self.B.dist(self.C)+self.C.dist(self.D)+self.D.dist(self.A)
 
 
 p1 = Punkt(0,0)
